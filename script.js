@@ -2,6 +2,9 @@
 const formulario = document.getElementById('formularioUsuario');
 const listaVisual = document.getElementById('listaVisual');
 
+//URL do render
+const api_url = 'https://projeto-final-web-2026-back-1j3p.onrender.com';
+
 // Variável de controle essencial para o sistema saber se estamos criando ou editando alguém.
 // Se for null, estamos criando (POST). Se tiver um nome, estamos editando (PUT).
 let nomeUsuarioSendoEditado = null;
@@ -9,7 +12,7 @@ let nomeUsuarioSendoEditado = null;
 // FUNÇÃO: BUSCAR E DESENHAR OS USUÁRIOS (GET)
 function carregarUsuarios() {
     // Faz uma requisição GET para o backend pedindo a lista de usuários atualizada
-    fetch('http://localhost:3000/usuarios')
+    fetch(`${api_url}/usuarios`)
         .then(function (resposta) {
             // Transforma a resposta de texto JSON vinda do servidor em um array JavaScript utilizável
             return resposta.json();
